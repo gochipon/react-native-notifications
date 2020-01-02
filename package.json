@@ -21,6 +21,7 @@
   ],
   "main": "lib/dist/index.js",
   "typings": "lib/dist/index.d.ts",
+  "react-native": "lib/src/index.ts",
   "scripts": {
     "build": "rm -rf ./lib/dist && tsc",
     "prestart": "npm run build",
