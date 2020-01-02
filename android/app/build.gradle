@@ -1,21 +1,5 @@
-import groovy.json.JsonSlurper
-
 apply plugin: 'com.android.library'
 apply from: '../prepare-robolectric.gradle'
-
-String resolveFlavor() {
-    def packageSlurper = new JsonSlurper()
-    def reactNativePackageJson = packageSlurper.parse file('../../../../../node_modules/react-native/package.json')
-    def reactNativeVersion = reactNativePackageJson.version
-
-    List versionComponents = reactNativeVersion.tokenize('.')
-
-    if (versionComponents[1].toInteger() < 60) {
-        return "reactNative59"
-    } else {
-        return "reactNative60"
-    }
-}
 
 android {
     compileSdkVersion 27
@@ -60,19 +44,8 @@ android {
 
     flavorDimensions "RNNotifications.reactNativeVersion"
     productFlavors {
-        reactNative59 {
-            dimension "RNNotifications.reactNativeVersion"
-        }
         reactNative60 {
             dimension "RNNotifications.reactNativeVersion"
-        }
-    }
-
-    def flavor = resolveFlavor()
-    variantFilter { variant ->
-        def names = variant.flavors*.name
-        if (!names.contains(flavor)) {
-            setIgnore(true)
         }
     }
 }
