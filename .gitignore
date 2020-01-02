@@ -15,12 +15,13 @@ npm-debug.log
 #####
 # Android
 
-lib/android/local.properties
-lib/android/*.iml
-lib/android/.idea
-lib/android/build
-lib/android/.gradle
+android/local.properties
+android/*.iml
+android/.idea
+android/build
+android/.gradle
 *.gradle
+!android/**/*.gradle
 
 #####
 # OS X temporary files that should never be committed
