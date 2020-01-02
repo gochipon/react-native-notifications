@@ -22,6 +22,8 @@ android/build
 android/.gradle
 *.gradle
 !android/**/*.gradle
+android/.project
+android/.settings/org.eclipse.buildship.core.prefs
 
 #####
 # OS X temporary files that should never be committed
